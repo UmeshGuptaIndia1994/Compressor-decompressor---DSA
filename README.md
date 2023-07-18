@@ -5,31 +5,31 @@ This project implements a simple compressor and decompressor in Java using the J
 This project implements a simple data compressor in Java using the Java Deflater class from the java.util.zip package. The compressor takes input data and compresses it using the Deflater class, reducing the size of the data and making it more efficient for storage or transmission.
 
 # Features
-Compresses input data using the Deflater class.
-Supports compression of any type of data (text, binary, etc.).
-Simple and easy-to-use API.
+     1. Compresses input data using the Deflater class.
+     2. Supports compression of any type of data (text, binary, etc.).
+     3. Simple and easy-to-use API.
 
 # Getting Started
-To use the compressor in your Java project, follow these steps:
-Clone the repository or download the project files.
-Import the project into your preferred Java IDE.
-Build the project to compile the source code.
-Use the provided Compressor class in your application.
+     1. To use the compressor in your Java project, follow these steps:
+     2. Clone the repository or download the project files.
+     3. Import the project into your preferred Java IDE.
+     4. Build the project to compile the source code.
+     5. Use the provided Compressor class in your application.
 
 # Decompressor Project
 This project implements a simple data decompressor in Java using the Java Inflater class from the java.util.zip package. The decompressor takes compressed data and decompresses it using the Inflater class, restoring the original uncompressed data.
 
 # Features
-Decompresses compressed data using the Inflater class.
-Supports decompression of any type of data (text, binary, etc.).
-Simple and easy-to-use API.
+     1. Decompresses compressed data using the Inflater class.
+     2. Supports decompression of any type of data (text, binary, etc.).
+     3. Simple and easy-to-use API.
 
 # Getting Started
-To use the decompressor in your Java project, follow these steps:
-Clone the repository or download the project files.
-Import the project into your preferred Java IDE.
-Build the project to compile the source code.
-Use the provided Decompressor class in your application.
+     1. To use the decompressor in your Java project, follow these steps:
+     2. Clone the repository or download the project files.
+     3. Import the project into your preferred Java IDE.
+     4. Build the project to compile the source code.
+     5. Use the provided Decompressor class in your application.
 
 # Handle exceptions:
 Both the compress and decompress methods may throw IOException or DataFormatException in case of errors during compression or decompression. Ensure proper error handling in your application.
