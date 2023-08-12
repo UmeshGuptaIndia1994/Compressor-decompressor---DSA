@@ -16,31 +16,22 @@ import java.util.zip.GZIPInputStream;
  * @author Umesh Gupta
  */
 
-public class Decompressor {
-    // Method to decompress a GZIP file
-    public static void method(File file) throws IOException {
-        // Get the parent directory of the input file
-        String fileDirectory = file.getParent();
+public class Decompressor { 
+    public static void method(File file) throws IOException { // Method to decompress a GZIP file
+        
+        String fileDirectory = file.getParent();  // Get the parent directory of the input file
 
-        // Initialize FileInputStream to read the input GZIP file
-        FileInputStream fis = new FileInputStream(file);
+        FileInputStream fis = new FileInputStream(file); // Initialize FileInputStream to read the input GZIP file
 
-        // Initialize GZIPInputStream to decompress the input stream
-        GZIPInputStream gzip = new GZIPInputStream(fis);
+        GZIPInputStream gzip = new GZIPInputStream(fis); // Initialize GZIPInputStream to decompress the input stream
 
-        // Initialize FileOutputStream to write the decompressed output to a new file
-        FileOutputStream fos = new FileOutputStream(fileDirectory + "/decompressedFile");
+        FileOutputStream fos = new FileOutputStream(fileDirectory + "/decompressedFile"); // Initialize FileOutputStream to write the decompressed output to a new file
 
-        // Initialize a buffer for reading/writing data
-        byte[] buffer = new byte[1024];
+        byte[] buffer = new byte[1024]; // Initialize a buffer for reading/writing data
 
-        int len;
-
-        // Read from the GZIPInputStream and write to the FileOutputStream
-        while ((len = gzip.read(buffer)) != -1) {
+        while ((int len = gzip.read(buffer)) != -1) { // Read from the GZIPInputStream and write to the FileOutputStream
             fos.write(buffer, 0, len);
         }
-
         // Close the streams in the reverse order: first GZIPInputStream, then FileOutputStream, and finally FileInputStream
         gzip.close();
         fos.close();
