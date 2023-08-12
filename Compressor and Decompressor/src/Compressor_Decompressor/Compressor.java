@@ -13,23 +13,25 @@ import java.util.zip.GZIPOutputStream;
 
 /**
  *
- * @author shank
+ * @author Umesh Gupta
  */
 public class Compressor {
-    public static void method(File file)throws IOException{
-        String fileDirectory=file.getParent();
+    public static void method(File file) throws IOException { // Method to compress a file using GZIP
+        
+        String fileDirectory = file.getParent(); // Get the parent directory of the input file
 
-        FileInputStream fis=new FileInputStream(file);
-        FileOutputStream fos=new FileOutputStream(fileDirectory+"/Compressed.gz");
-        GZIPOutputStream gzip=new GZIPOutputStream(fos);
+        FileInputStream fis = new FileInputStream(file); // Initialize FileInputStream to read the input file
 
-        byte[] buffer=new byte[1024];
-        int len;
+        FileOutputStream fos = new FileOutputStream(fileDirectory + "/Compressed.gz");  // Initialize FileOutputStream to write the compressed output to a new GZIP file
 
-        while((len=fis.read(buffer))!=1){
-            gzip.write(buffer,0,len);
+        GZIPOutputStream gzip = new GZIPOutputStream(fos); // Initialize GZIPOutputStream to compress the output stream
+
+        byte[] buffer = new byte[1024]; // Initialize a buffer for reading/writing data
+
+        while ((int len = fis.read(buffer)) != -1) { // Read from the FileInputStream and compress/write to the GZIPOutputStream
+            gzip.write(buffer, 0, len);
         }
-
+        // Close the streams in the reverse order: first GZIPOutputStream, then FileOutputStream, and finally FileInputStream
         gzip.close();
         fos.close();
         fis.close();
