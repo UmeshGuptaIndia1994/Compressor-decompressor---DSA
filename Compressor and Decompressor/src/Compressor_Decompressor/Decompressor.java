@@ -13,26 +13,37 @@ import java.util.zip.GZIPInputStream;
 
 /**
  *
- * @author shank
+ * @author Umesh Gupta
  */
+
 public class Decompressor {
-    public static void method(File file)throws IOException{
-        String fileDirectory=file.getParent();
+    // Method to decompress a GZIP file
+    public static void method(File file) throws IOException {
+        // Get the parent directory of the input file
+        String fileDirectory = file.getParent();
 
-        FileInputStream fis=new FileInputStream(file);
-        GZIPInputStream gzip=new GZIPInputStream(fis);
-        FileOutputStream fos=new FileOutputStream(fileDirectory+"/decompressedFile");
+        // Initialize FileInputStream to read the input GZIP file
+        FileInputStream fis = new FileInputStream(file);
 
-        byte[] buffer=new byte[1024];
+        // Initialize GZIPInputStream to decompress the input stream
+        GZIPInputStream gzip = new GZIPInputStream(fis);
+
+        // Initialize FileOutputStream to write the decompressed output to a new file
+        FileOutputStream fos = new FileOutputStream(fileDirectory + "/decompressedFile");
+
+        // Initialize a buffer for reading/writing data
+        byte[] buffer = new byte[1024];
+
         int len;
 
-        while((len=gzip.read(buffer))!=1){
-            fos.write(buffer,0,len);
+        // Read from the GZIPInputStream and write to the FileOutputStream
+        while ((len = gzip.read(buffer)) != -1) {
+            fos.write(buffer, 0, len);
         }
 
+        // Close the streams in the reverse order: first GZIPInputStream, then FileOutputStream, and finally FileInputStream
         gzip.close();
         fos.close();
         fis.close();
     }
-
 }
